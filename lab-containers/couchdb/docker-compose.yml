@@ -1,0 +1,27 @@
+services:
+  couchdb:
+    image: vulhub/couchdb:2.1.0
+    environment:
+      COUCHDB_USER: super_admin
+      COUCHDB_PASSWORD: The_super_password9876
+    networks:
+      ovpn-network:
+        ipv4_address: 30.30.30.12
+  initd:
+    image: buildpack-deps:focal-curl
+    command: "bash /init.sh"
+    environment:
+      COUCHDB_URL: couchdb:5984
+      COUCHDB_AUTH: super_admin:The_super_password9876
+    volumes:
+      - ./init.sh:/init.sh
+    depends_on:
+      - couchdb
+    networks:
+      ovpn-network:
+        ipv4_address: 30.30.30.13
+
+networks:
+  ovpn-network:
+    name: ovpn-network
+    external: true

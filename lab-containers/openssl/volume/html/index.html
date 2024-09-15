@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heartbleed Image</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        a {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            text-decoration: none;
+            color: blue;
+        }
+        .image-container {
+            display: none;
+            text-align: center;
+            padding-top: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <script>
+        function showImage() {
+            document.querySelector('.image-container').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+
+    <a href="javascript:void(0)" onclick="showImage()">.</a>
+
+    <div class="image-container">
+        <img src="heartbleed.jpg" alt="Heartbleed Image">
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to ToMilab</title>
+    <link rel="stylesheet" href="hacker-style.css">
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/introduction-to-ethical-hacking">Introduction to Ethical Hacking</a>
+            <a href="/additional-resources">Additional Resources</a>
+        </nav>
+    </div>
+
+    <!-- Loading Bar -->
+    <div id="loading-bar-container">
+        <div id="loading-bar"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="glow">Welcome to ToMilab (I hack for the flavour)</h1>
+        <p><strong>Download the <a href="#" onclick="downloadVPN()">VPN Configuration File</a>
+                to connect to the lab.</strong></p>
+        <p><strong>Enter the flags you find during the lab:</strong></p>
+        <input type="text" placeholder="Enter flag here" id="flagInput">
+        <button onclick="checkFlag()">Submit Flag</button>
+        <p id="resultMessage"></p>
+
+        <!-- New Section for the Guide -->
+        <div class="section">
+            <h2>How to Access the Virtual Lab</h2>
+            <p>Welcome to the virtual cybersecurity lab. Here, you can test your skills and knowledge in ethical hacking
+                in a controlled environment. Follow these steps to get started:</p>
+
+            <h2>1. Download the .ovpn File</h2>
+            <p>To connect to the lab, download the <a href="https://85.190.240.210:5000/generate-ovpn" download>VPN
+                    Configuration File</a>. This file is essential to establish a secure connection via VPN.</p>
+            <p><strong>Steps:</strong></p>
+            <p>1. Download the .ovpn file from the link above.</p>
+            <p>2. Use an OpenVPN client to connect to the lab. We recommend using <a
+                    href="https://openvpn.net/community-downloads/" target="_blank">OpenVPN</a> for a straightforward
+                setup.</p>
+
+            <h2>2. Connect to the Lab</h2>
+            <p>Once you have downloaded the .ovpn file, follow these steps:</p>
+            <p>1. Open your OpenVPN client.</p>
+            <p>2. Import the .ovpn file.</p>
+            <p>3. Connect to the lab using the client. Once connected, you will have full access to the lab machines.
+            </p>
+
+            <h2>3. Recommended: Use Kali Linux</h2>
+            <p>To make the most out of the lab's resources, we recommend using <strong>Kali Linux</strong> as your
+                operating system. Kali Linux is a Debian-based distribution that comes with a wide range of
+                pre-installed tools for penetration testing and ethical hacking.</p>
+            <p><a href="https://www.kali.org/get-kali/#kali-bare-metal" target="_blank">Download Kali Linux</a> if you
+                don't already have it installed.</p>
+
+            <h2>4. Introduction to Ethical Hacking</h2>
+            <p>If you're new to ethical hacking, we suggest you first review our <strong><a
+                        href="./introduction-to-ethical-hacking">Introduction to Ethical Hacking Guide</a></strong>.
+                This guide covers the basic concepts you need to understand before starting your challenge in the lab.
+            </p>
+            <p>The guide is available below on this page. Please review it to ensure you understand the fundamentals
+                before diving into the lab challenges.</p>
+
+            <h2>5. Additional Resources</h2>
+            <p>For those who want to practice before entering the lab, we have compiled a <strong><a
+                        href="./additional-resources">list of recommended websites.</a></strong> These resources will
+                allow you to hone your skills in a safe and guided environment.</p>
+            <p>You can find the links to these resources at the end of our introductory guide. These are ideal for those
+                who wish to practice and learn more before tackling the lab's challenges.</p>
+
+            <p>Good luck! Remember, consistent practice and curiosity are key to advancing in the world of ethical
+                hacking. Have fun and enjoy learning!</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy; 2024 ToMilab: I hack for the flavour</p>
+        <p><a href="https://github.com/CarlosMasTrias" target="_blank">GitHub</a></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

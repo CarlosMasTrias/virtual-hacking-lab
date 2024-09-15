@@ -1,0 +1,27 @@
+services:
+  nginx:
+    image: vulhub/openssl:1.0.1c-with-nginx
+    networks:
+      ovpn-network:
+        ipv4_address: 30.30.30.4
+#    volumes:
+#      - ./volume/html:/var/www/html
+    command: >
+      /bin/bash -c 'export FLAG="FLAG: {G4p45h4rd0_v2_2024}" &&
+      echo $FLAG > /root/root.txt &&
+      apt-get update &&
+      apt-get install -y nginx -N curl openssh-server &&
+      useradd -m virtuallab &&
+      echo "virtuallab:virtuallab" | chpasswd &&
+      service ssh start &&
+      service nginx start &&
+      while true; do
+        curl https://30.30.30.4 -H "Authorization: Basic bWFnaWNoazptYWdpY2hr" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0" -k -L &&
+        echo $FLAG > /dev/shm/flag.txt &&
+        sleep 5;
+      done'
+
+networks:
+  ovpn-network:
+    name: ovpn-network
+    external: true

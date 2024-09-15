@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to ToMilab</title>
+    <link rel="stylesheet" href="../hacker-style.css">
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/introduction-to-ethical-hacking">Introduction to Ethical Hacking</a>
+            <a href="/additional-resources">Additional Resources</a>
+        </nav>
+    </div>
+
+    <!-- Loading Bar -->
+    <div id="loading-bar-container">
+        <div id="loading-bar"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="glow">Introduction to Ethical Hacking</h1>
+        <!-- Ethical Hacking Guide Section -->
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>Ethical hacking is the practice of using technical knowledge, cybersecurity principles, and ethics to
+                identify and fix vulnerabilities in computer systems to improve their security. Unlike malicious
+                hacking, ethical hacking is conducted with permission and legally to protect information and prevent
+                cyber attacks.</p>
+            <p><strong>DO NOT CONFUSE CYBERCRIMINALS WITH HACKERS!</strong></p>
+
+            <h2>Why is Ethical Hacking Important?</h2>
+            <p><strong>1. Data Protection:</strong> Helps to protect sensitive information of individuals and
+                organizations.</p>
+            <p><strong>2. Security Improvement:</strong> Identifies and fixes vulnerabilities before they can be
+                exploited.</p>
+            <p><strong>3. Legal Compliance:</strong> Ensures compliance with security regulations and standards.</p>
+            <p><strong>4. Awareness and Education:</strong> Promotes a better understanding of security threats and
+                the importance of good practices.</p>
+
+            <h2>Basic Concepts Every Hacker Should Know</h2>
+            <p><strong>Weakness:</strong> A flaw in the code of a system or device.</p>
+            <p><strong>Vulnerability:</strong> A weakness in a system that can be exploited.</p>
+            <p><strong>Exploit:</strong> Code that takes advantage of a vulnerability.</p>
+            <p><strong>Payload:</strong> The code or data introduced into a vulnerable system.</p>
+            <p><strong>Backdoor:</strong> A "secret entry" already included in the system in most cases, used for
+                remote control.</p>
+            <p><strong>Reverse Shell:</strong> A process where the attacker's machine connects to the victim's
+                machine to send commands for execution.</p>
+            <p><strong>CVE (Common Vulnerabilities and Exposures):</strong> A public cataloging system that
+                identifies and lists known security vulnerabilities.</p>
+            <p><strong>CWE (Common Weakness Enumeration):</strong> A comprehensive list of known programming,
+                design, and architectural errors that can lead to exploitable vulnerabilities.</p>
+            <p><strong>Blue Team:</strong> The people responsible for defending an organization's systems and
+                networks.</p>
+            <p><strong>Red Team:</strong> Simulates attacks by malicious hackers to assess the effectiveness of
+                defense measures.</p>
+
+            <h2>Phases of Ethical Hacking</h2>
+
+            <h3>1. RECONNAISSANCE</h3>
+            <p>Collecting information about the target.</p>
+            <p><strong>Commands to gather information about a domain:</strong></p>
+            <div class="code-block">
+                <pre><code>whois example.com</code></pre><br>
+                <pre><code>nslookup example.com</code></pre><br>
+                <pre><code>dig example.com</code></pre>
+            </div>
+
+            <h3>2. SCANNING</h3>
+            <p>Identifying open ports and vulnerable services.</p>
+            <p><strong>Using Nmap to scan networks and ports.</strong> </p>
+            <div class="code-block">
+                <pre><code>nmap -T5 -sS -sV -sC -vvv example.com</code></pre>
+            </div>
+            <p><strong>Explanation of important flags:</strong></p>
+            <ul>
+                <p><code>-T5</code>: Adjusts the speed of the scan, with T0 being the slowest and T5 the fastest.</p>
+                <p><code>-sS</code>: The quickest way to scan popular ports using the TCP protocol.</p>
+                <p><code>-sV</code>: Analyzes open ports to determine the service/version.</p>
+                <p><code>-sC</code>: Uses default scripts.</p>
+                <p><code>-vvv</code>: Increases the level of detail in the descriptions and responses provided by the
+                    Nmap command.</p>
+            </ul>
+            <p><strong>Other useful commands:</strong></p>
+
+            <div class="code-block">
+                <pre><code>nikto -url example.com</code></pre>
+            </div>
+            <p>Scans the network (not highly recommended as it makes a lot of noise and can be detected by the blue
+                team).</p>
+            <div class="code-block">
+                <pre><code>dirb http://example.com</code></pre>
+            </div>
+            <p>Provides information on the technologies and versions used by the web.</p>
+
+            <h3>3. GAINING ACCESS</h3>
+            <p>Attempting to exploit vulnerabilities to gain access to systems or networks.</p>
+            <P>After gathering information about exposed services and versions used, you can check
+                websites like <a href="https://www.exploit-db.com/"> Exploit-DB</a> to see if there
+                are associated CVEs and use tools like <a href="https://www.metasploit.com/">Metasploit</a>
+                to exploit the vulnerabilities.</P>
+            <p>Once the exploit is executed, the attacker can gain access to system resources,
+                such as files, user accounts, or even full control over the system through
+                techniques like a reverse shell.</p>
+
+            <h3>4. MAINTAINING ACCESS</h3>
+            <p>Securing access for future intrusions.</p>
+            <p>Creating a persistent user on a compromised Linux system:</p>
+            <div class="code-block">
+                <pre><code>sudo useradd -m hacker</code></pre><br>
+                <pre><code>sudo passwd hacker</code></pre>
+            </div>
+            <p>Backdoors allow easy re-access to the system in the future.</p>
+
+            <h3>5. COVERING TRACKS</h3>
+            <p>Erasing traces to avoid detection.</p>
+            <p>Deleting logs on a Linux system:</p>
+            <div class="code-block">
+                <pre><code>echo > /var/log/auth.log</code></pre><br>
+                <pre><code>echo > /var/log/syslog</code></pre>
+            </div>
+
+            <h2>There you Have Some Examples of Vulnerabilities</h2>
+
+            <p><strong>> SQL Injection: </strong>Injecting malicious SQL code into website input fields to access the
+                database.
+            </p>
+            <p><strong>> Cross-site Scripting (XSS): </strong>Injecting malicious JavaScript code into web pages to
+                steal cookies or redirect users to malicious sites.</p>
+            <p><strong>> Path Traversal: </strong>Manipulating URL parameters or HTTP requests to access files outside
+                the web directory to which the user should have access.</p>
+            <p><strong>> Command Injection: </strong>Similar to SQL injection, but in this case, operating system
+                commands
+                are injected into input fields.</p>
+            <p><strong>> File Upload: </strong>This attack exploits the file upload functionalities of an application to
+                upload
+                malicious files, such as scripts, executables, or files that allow code execution on the server.</p>
+            <p><strong>> Denial of Service (DoS): </strong>Flooding a system with requests to make it inaccessible to
+                legitimate users.</p>
+            <p>For more information on exploitation examples, I recommend checking out the <a
+                    href="https://portswigger.net/web-security/learning-paths">PortSwigger Learning Paths.</a></p>
+        </div>
+        <br>
+        <br>
+        <h4>
+            <p><strong>WARNING!</strong> Unauthorized use of hacking tools may be illegal. Be sure to use these tools
+                only
+                in authorized environments and for educational or research purposes.</p>
+        </h4>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy; 2024 ToMilab: I hack for the flavour</p>
+        <p><a href="https://github.com/CarlosMasTrias" target="_blank">GitHub</a></p>
+    </div>
+
+</body>
+
+</html>

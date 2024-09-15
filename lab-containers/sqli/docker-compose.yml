@@ -1,0 +1,31 @@
+services:
+  web:
+    build: .
+    container_name: vulnerable-web
+    volumes:
+      - ./volume:/var/www/html/
+    depends_on:
+      - db
+    networks:
+      ovpn-network:
+        ipv4_address: 30.30.30.50
+
+  db:
+    image: mysql:5.7
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass_1234
+      MYSQL_DATABASE: webapp
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      ovpn-network:
+        ipv4_address: 30.30.30.51
+
+volumes:
+  db_data:
+
+networks:
+  ovpn-network:
+    external:
+      name: ovpn-network

@@ -1,0 +1,13 @@
+services:
+  grafana:
+    image: vulhub/grafana:8.2.6
+    volumes:
+      - ./volume/passwd:/etc/passwd
+    networks:
+      ovpn-network:
+        ipv4_address: 30.30.30.3
+ 
+networks:
+  ovpn-network:
+    name: ovpn-network
+    external: true

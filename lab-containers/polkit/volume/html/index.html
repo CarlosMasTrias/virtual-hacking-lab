@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<!-- REMOVE SERVER 30.30.30.10 FOCUS ON THE CLICKING GAME!! -->
+<!-- USER: ubuntu:vulhub -->
+<!-- polkit version 0.105 -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Click Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        #clickButton {
+            padding: 10px 20px;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Click the Button!</h1>
+    <p id="score">Score: 0</p>
+    <button id="clickButton">Click me!</button>
+
+    <script src="game.js"></script>
+</body>
+
+</html>
